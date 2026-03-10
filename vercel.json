@@ -1,0 +1,6 @@
+{
+  "env": {
+    "NEXT_PUBLIC_SUPABASE_URL": "https://burpxscfnjmixiriymad.supabase.co",
+    "NEXT_PUBLIC_SUPABASE_ANON_KEY": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJ1cnB4c2NmbmptaXhpcml5bWFkIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzMxNDAyODAsImV4cCI6MjA4ODcxNjI4MH0.HBo9VYBqG3LLVldeNN_ZtCF8uevlCpcBE55bqHc55To"
+  }
+}

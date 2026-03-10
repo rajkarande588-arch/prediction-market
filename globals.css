@@ -1,0 +1,140 @@
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --brand-green: #00C278;
+  --brand-red: #FF4D4D;
+  --brand-blue: #1652F0;
+  --dark: #0D0F14;
+  --card: #141720;
+  --border: #1E2330;
+  --muted: #6B7280;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  background-color: var(--dark);
+  color: #F1F5F9;
+  font-family: 'Syne', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--dark);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted);
+}
+
+/* Noise texture overlay for depth */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+  pointer-events: none;
+  z-index: 9999;
+  opacity: 0.4;
+}
+
+@layer components {
+  .card {
+    @apply bg-[#141720] border border-[#1E2330] rounded-xl;
+  }
+
+  .btn-primary {
+    @apply bg-[#1652F0] hover:bg-blue-600 text-white font-semibold px-5 py-2.5 rounded-lg transition-all duration-200 active:scale-95;
+  }
+
+  .btn-yes {
+    @apply bg-[#00C278] hover:bg-emerald-500 text-black font-bold px-5 py-2.5 rounded-lg transition-all duration-200 active:scale-95;
+  }
+
+  .btn-no {
+    @apply bg-[#FF4D4D] hover:bg-red-500 text-white font-bold px-5 py-2.5 rounded-lg transition-all duration-200 active:scale-95;
+  }
+
+  .badge-yes {
+    @apply bg-emerald-900/30 text-emerald-400 border border-emerald-800/50 text-xs font-mono px-2 py-1 rounded;
+  }
+
+  .badge-no {
+    @apply bg-red-900/30 text-red-400 border border-red-800/50 text-xs font-mono px-2 py-1 rounded;
+  }
+
+  .input-field {
+    @apply bg-[#0D0F14] border border-[#1E2330] rounded-lg px-4 py-3 text-white placeholder-[#6B7280] focus:outline-none focus:border-[#1652F0] focus:ring-1 focus:ring-[#1652F0] transition-all w-full font-sans;
+  }
+
+  .nav-link {
+    @apply text-[#6B7280] hover:text-white transition-colors text-sm font-medium;
+  }
+
+  .price-bar {
+    @apply h-1.5 rounded-full transition-all duration-700 ease-out;
+  }
+}
+
+/* Animated gradient background for login */
+.login-bg {
+  background: radial-gradient(ellipse at 20% 50%, rgba(22, 82, 240, 0.15) 0%, transparent 60%),
+              radial-gradient(ellipse at 80% 20%, rgba(0, 194, 120, 0.1) 0%, transparent 60%),
+              radial-gradient(ellipse at 60% 80%, rgba(255, 77, 77, 0.08) 0%, transparent 50%),
+              #0D0F14;
+}
+
+/* Live pulse dot */
+@keyframes livePulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(1.5); }
+}
+
+.live-dot {
+  animation: livePulse 2s ease-in-out infinite;
+}
+
+/* Price flash animations */
+@keyframes flashGreen {
+  0% { background-color: rgba(0, 194, 120, 0.3); }
+  100% { background-color: transparent; }
+}
+
+@keyframes flashRed {
+  0% { background-color: rgba(255, 77, 77, 0.3); }
+  100% { background-color: transparent; }
+}
+
+.flash-green {
+  animation: flashGreen 0.8s ease-out;
+}
+
+.flash-red {
+  animation: flashRed 0.8s ease-out;
+}
+
+/* Ticker animation */
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-content {
+  animation: ticker 30s linear infinite;
+  white-space: nowrap;
+}
