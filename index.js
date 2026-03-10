@@ -12,5 +12,18 @@ export default function Home() {
     }
   }, [user, loading])
 
-  return null
+  return (
+    <div style={{
+      minHeight: '100vh',
+      background: '#0D0F14',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      color: '#6B7280',
+      fontFamily: 'monospace',
+      fontSize: '14px',
+    }}>
+      Loading...
+    </div>
+  )
 }
